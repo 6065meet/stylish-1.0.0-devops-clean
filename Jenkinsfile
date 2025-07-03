@@ -1,5 +1,18 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+            yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: jnlp
+    image: 6065meet/jenkins-agent-docker
+    imagePullPolicy: Always
+    args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
+"""
+        }
+    }
     environment {
         IMAGE = '6065meet/stylish:${BUILD_NUMBER}'
     }
