@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/6065meet/stylish-1.0.0.devops.git'
+                git 'https://github.com/6065meet/stylish-1.0.0-devops-clean'
             }
         }
         stage('Build Docker Image') {
