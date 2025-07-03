@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stylish-deployment
+  namespace: stylish-namespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: stylish
+  template:
+    metadata:
+      labels:
+        app: stylish
+    spec:
+      containers:
+      - name: stylish
+        image: 6065meet/stylish:latest
+        ports:
+        - containerPort: 80
