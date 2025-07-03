@@ -4,11 +4,6 @@ pipeline {
         IMAGE = '6065meet/stylish:${BUILD_NUMBER}'
     }
     stages {
-        stage('Clone') {
-            steps {
-                git 'https://github.com/6065meet/stylish-1.0.0-devops-clean'
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $IMAGE .'
